@@ -10,7 +10,6 @@ namespace Calculator
 {
     internal class Calculator
     {
-        private int lastResult = 0;
 
         public static int Addition(int a, int b)
         { 
