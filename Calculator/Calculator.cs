@@ -10,36 +10,33 @@ namespace Calculator
 {
     internal class Calculator
     {
-        private int lastResult;
+        private int lastResult = 0;
 
         public static int Addition(int a, int b)
-        {
-            int lastResult = a + b;
-            return lastResult;
+        { 
+            return a + b;
         }
 
         public static int Subtraktion(int a, int b)
         {
-            int lastResult = a - b;
-            return lastResult;
+           
+            return a-b;
         }
 
         public static int Multiplikation(int a, int b)
         {
-            int lastResult = a * b;
-            return lastResult;
+           return a*b;
         }
-
         public static int Division(int a, int b)
         {
             if (a == 0 && b == 0)
             {
-                Console.WriteLine("Die Eingabe ist null. Bitte gebe eine Ganza zahl ein: ");
+                Console.WriteLine("Die Eingabe ist null. Bitte gebe eine Ganzahl ein: ");
             }
 
-            int lastResult = a / b;
-            return lastResult;
+            return a / b;
         }
+
 
         public static int ReadInt(string promt)
         {
@@ -48,7 +45,7 @@ namespace Calculator
             while (true)
             {
                 string input = Console.ReadLine();
-                if (int.TryParse(input, o33ut number) && number > 0)
+                if (int.TryParse(input, out number) && number > 0)
                 {
                     return number;
                 }
@@ -59,15 +56,10 @@ namespace Calculator
             }
         }
 
-        public static void Schow( int a, int b, int lastResult)
+        public static int PerformOperation(int operand1, int operand2, Func<int, int, int> operation)
         {
-            Console.WriteLine($"Das Ergebnis von {a} und {b} ist {lastResult}");
+           return operation(operand1, operand2);
         }
 
-
-        public int GetLastResult()
-        {
-            return lastResult;
-        }
     }
 }
